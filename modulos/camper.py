@@ -1,4 +1,5 @@
 import os
+from .variables import save, getAll
 def create():
     os.system('clear')
     print("""
@@ -6,15 +7,21 @@ def create():
 +          Menu del camper           +
 ++++++++++++++++++++++++++++++++++++++
 """)
-    camper={
+    save({
         "Nombre": input("Ingrese el nombre del camper: "),
         "Apellido" : input("Ingrese el apellido del camper: "),
         "Edad" : int(input("Ingrese la edad del camper: "))
-    }
-    print(camper)
+    })
+    os.system('pause')
 
 def read():
-    print("Datos del camper encontrados")
+    print("""
+++++++++++++++++++++++++++++++++++++++
++          Menu del camper           +
+++++++++++++++++++++++++++++++++++++++
+""")
+    
+    os.system('pause')
 
 def update():
     print("El camper se actualizo")

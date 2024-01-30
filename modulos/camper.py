@@ -1,7 +1,7 @@
 import os
 from .variables import save, getAll
 def create():
-    os.system('clear')
+    os.system('cls')
     print("""
 ++++++++++++++++++++++++++++++++++++++
 +          Menu del camper           +
@@ -20,11 +20,12 @@ def read():
 +          Menu del camper           +
 ++++++++++++++++++++++++++++++++++++++
 """)
-    
+    print(getAll())
     os.system('pause')
 
 def update():
-    print("El camper se actualizo")
+    nombre = input("Ingrese el nombre del camper: ")
+    
 
 def delete():
     print("El camper se elimino")
@@ -37,7 +38,7 @@ def menu():
 """
     menu = ["Guardar", "Buscar", "Actualizar", "Eliminar", "Salir"]
     while(True):
-        os.system('clear')
+        os.system('cls')
         print(menuu)
         print("".join([f"{i+1}. {val}\n" for i, val in enumerate(menu)]))
         try:

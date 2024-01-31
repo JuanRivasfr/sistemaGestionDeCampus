@@ -1,10 +1,22 @@
 import os
 camper = list()
-def save(data):
-    camper.append(data)
+def save():
+    inf = {
+        "Nombre": input("Ingrese el nombre del camper: "),
+        "Apellido" : input("Ingrese el apellido del camper: "),
+        "Edad" : int(input("Ingrese la edad del camper: "))
+    }
+    camper.append(inf)
+    os.system('pause')
 
 def getAll():
-    return camper
+    for i,value in enumerate(camper):
+        print(f'ID: {(i+1)} \nNombre: {value.get("Nombre")} \nApellido: {value.get("Apellido")} \nEdad: {value.get("Edad")} \n')
+    os.system('pause')
+
+def getOne(data):
+    value = camper[data]
+    print(f'ID: {data} \nNombre: {value.get("Nombre")} \nApellido: {value.get("Apellido")} \nEdad: {value.get("Edad")} \n')
 
 def eliminate(index):
     for i,value in enumerate(camper):

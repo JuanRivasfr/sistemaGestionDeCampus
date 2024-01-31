@@ -4,3 +4,9 @@ def save(data):
 
 def getAll():
     return camper
+
+def eliminate(index):
+    value = camper.pop(index)
+    return value
+
+

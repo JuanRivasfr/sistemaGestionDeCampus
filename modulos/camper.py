@@ -1,5 +1,5 @@
 import os
-from .variables import save, getAll, eliminate, camper
+from .variables import save, getAll, eliminate, camper, updat
 def create():
     os.system('cls')
     print("""
@@ -22,26 +22,37 @@ def read(codigo=None):
     if(codigo==None):
         for i,value in enumerate(getAll()):
             print(f'ID: {(i+1)} \nNombre: {value.get("Nombre")} \nApellido: {value.get("Apellido")} \nEdad: {value.get("Edad")} \n')
+        os.system('pause')
     else:
             value = getAll()[codigo-1]
-            print(f'ID: {codigo} \nNombre: {value.get("Nombre")} \nApellido: {value.get("Apellido")} \nEdad: {value.get("Edad")} \n')
-    os.system('pause')
+            print(f'ID: {codigo} \nNombre: {value.get("Nombre")} \nApellido: {value.get("Apellido")} \nEdad: {value.get("Edad")} \n')   
 def update():
-    nombre = input("Ingrese el nombre del camper: ")
+    os.system('cls')
+    read()
+    cd = int(input("Ingrese el codigo del camper que desea editar: "))
+    os.system('cls')
+    read(cd)
+    opc = int(input("Esta seguro que desea editar?\n1.Si \n2.No \n3.Salir \nIngrese el numero correspondiente: "))
+    if opc == 1:
+        os.system('cls')
+        updat(cd-1)
+        os.system('cls')
+        read(cd)
+        print("Se edito el camper")
+        os.system('pause')
+    elif opc == 2:
+        delete()
+    elif opc == 3:
+        menu()
 def delete():
     os.system('cls')
     read()
     cd = int(input("Ingrese el codigo del camper que desea eliminar: "))
+    os.system('cls')
     read(cd)
     opc = int(input("Esta seguro que desea eliminar?\n1.Si \n2.No \n3.Salir \nIngrese el numero correspondiente: "))
     if opc == 1:
-        for i,value in enumerate(getAll()):
-            if cd-1 == i:
-                os.system('cls')
-                value = eliminate(i)
-                print(f'ID: {cd} \nNombre: {value.get("Nombre")} \nApellido: {value.get("Apellido")} \nEdad: {value.get("Edad")} \n')
-                print("El camper fue eliminado")
-                os.system('pause')
+        eliminate(cd-1)
     elif opc == 2:
         delete()
     elif opc == 3:

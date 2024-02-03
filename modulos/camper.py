@@ -93,6 +93,7 @@ def menu():
         print("".join([f"{i+1}. {val}\n" for i, val in enumerate(menu)]))
         try:
             opc = int(input(":"))
+            #Condicion para entrar al menu
             if(opc<=len(menu) and opc>0):
                 match(opc):
                     case 1: create()
